@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Maison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/styles.css">
+</head>
+<body>
+
+  <!-- ── HEADER ──────────────────────────────────────────────────────── -->
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span class="logo-icon">🍽</span>
+      <span class="logo-text">Menu<strong>Maison</strong></span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html" class="nav-link active">Explorer</a>
+      <a href="menu.html"  class="nav-link">Mes Menus</a>
+      <a href="stock.html" class="nav-link">Stock</a>
+    </nav>
+    <div class="header-right">
+      <button class="btn-stock-toggle" id="stockToggleHeader" title="Afficher selon mon stock">
+        <span class="icon">🥕</span> Stock uniquement
+      </button>
+    </div>
+  </header>
+
+  <!-- ── HERO ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Trouvez votre prochain repas</h1>
+      <p>Des milliers de recettes classées, filtrables, et adaptées à votre stock.</p>
+      <div class="search-bar-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input"
+               placeholder="Rechercher un plat… ex : Chicken Tikka, Ramen, Tarte…"
+               autocomplete="off" spellcheck="false">
+        <kbd class="search-shortcut">↵</kbd>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MAIN LAYOUT ─────────────────────────────────────────────────── -->
+  <div class="layout">
+
+    <!-- Sidebar filtres -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Type de plat</h3>
+        <div class="filter-group" id="filterType"></div>
+      </div>
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Catégorie</h3>
+        <div class="filter-group scrollable" id="filterCategorie"></div>
+      </div>
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Origine</h3>
+        <div class="filter-group scrollable" id="filterPays"></div>
+      </div>
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Tags</h3>
+        <div class="filter-group scrollable" id="filterTag"></div>
+      </div>
+      <button class="btn-clear-filters" id="clearFilters">Effacer les filtres</button>
+    </aside>
+
+    <!-- Content -->
+    <main class="content" id="mainContent">
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <span class="result-count" id="resultCount">—</span>
+          <label class="stock-toggle">
+            <input type="checkbox" id="stockOnly">
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">Ingrédients disponibles seulement</span>
+          </label>
+        </div>
+        <div class="toolbar-right">
+          <button class="view-btn active" id="viewGrid" title="Grille">⊞</button>
+          <button class="view-btn" id="viewList" title="Liste">☰</button>
+        </div>
+      </div>
+
+      <!-- Chips filtres actifs -->
+      <div class="active-filters" id="activeFilters"></div>
+
+      <!-- Grille résultats -->
+      <div class="cards-grid" id="cardsGrid"></div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination"></div>
+
+    </main>
+  </div>
+
+  <!-- ── MODAL PLAT ───────────────────────────────────────────────────── -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" id="modalContent">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ── MENU BUILDER (drawer) ────────────────────────────────────────── -->
+  <div class="menu-drawer" id="menuDrawer">
+    <div class="drawer-header">
+      <span>Menu en cours</span>
+      <button id="drawerClose">✕</button>
+    </div>
+    <div class="drawer-slots">
+      <div class="slot" data-pos="Entrée">
+        <span class="slot-label">Entrée</span>
+        <div class="slot-content" id="slotEntree"><em>Aucune</em></div>
+      </div>
+      <div class="slot" data-pos="Plat">
+        <span class="slot-label">Plat principal</span>
+        <div class="slot-content" id="slotPlat"><em>Aucun</em></div>
+      </div>
+      <div class="slot" data-pos="Dessert">
+        <span class="slot-label">Dessert</span>
+        <div class="slot-content" id="slotDessert"><em>Aucun</em></div>
+      </div>
+    </div>
+    <div class="drawer-actions">
+      <input type="text" id="menuNom" placeholder="Nom du menu…">
+      <button class="btn-primary" id="saveMenu">Sauvegarder</button>
+    </div>
+  </div>
+  <button class="fab" id="fabMenu" title="Constructeur de menu">🍴 Mon menu</button>
+
+  <script src="./src/js/index_connector.js"></script>
+</body>
+</html>

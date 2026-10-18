@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mes Menus – Menu Maison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span class="logo-icon">🍽</span>
+      <span class="logo-text">Menu<strong>Maison</strong></span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html" class="nav-link">Explorer</a>
+      <a href="menu.html"  class="nav-link active">Mes Menus</a>
+      <a href="stock.html" class="nav-link">Stock</a>
+    </nav>
+    <div class="header-right"></div>
+  </header>
+
+  <div class="page-inner">
+    <div class="page-header-row">
+      <h1 class="page-title">Mes Menus</h1>
+    </div>
+    <div class="menus-grid" id="menusGrid">
+      <div class="detail-loading">Chargement…</div>
+    </div>
+  </div>
+
+  <!-- Modal détail menu -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" id="modalContent">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="./src/js/menu_connector.js"></script>
+</body>
+</html>

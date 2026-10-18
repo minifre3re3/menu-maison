@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Stock – Menu Maison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span class="logo-icon">🍽</span>
+      <span class="logo-text">Menu<strong>Maison</strong></span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html" class="nav-link">Explorer</a>
+      <a href="menu.html"  class="nav-link">Mes Menus</a>
+      <a href="stock.html" class="nav-link active">Stock</a>
+    </nav>
+    <div class="header-right"></div>
+  </header>
+
+  <div class="page-inner">
+    <div class="page-header-row">
+      <h1 class="page-title">Mon Stock</h1>
+      <div class="stock-toolbar">
+        <input type="text" id="stockSearch" class="stock-search-input"
+               placeholder="Filtrer les ingrédients…">
+        <label class="stock-toggle">
+          <input type="checkbox" id="showOnlyAvailable">
+          <span class="toggle-slider"></span>
+          <span class="toggle-label">Disponibles seulement</span>
+        </label>
+      </div>
+    </div>
+    <div class="stock-grid" id="stockGrid">
+      <div class="detail-loading">Chargement…</div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="./src/js/stock_connector.js"></script>
+</body>
+</html>
